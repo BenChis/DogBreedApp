@@ -2,8 +2,8 @@
 
 ## Preview of the Project
 
-![DogApp Desktop](./Preview/Dog_App_Desktop.png =x400)
-![DogApp Mobile](./Preview/Dog_App_Mobile.png =x250)
+![DogApp Desktop](./Preview/Dog_App_Desktop.png )
+![DogApp Mobile](./Preview/Dog_App_Mobile.png )
 
 
 ## Project setup
