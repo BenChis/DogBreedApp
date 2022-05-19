@@ -9,21 +9,48 @@
         alt="dog image"
       />
     </div>
-    <button
-      class="text-pink-600 mt-10 hover:text-white-600 uppercase font-bold border border-pink-600 py-2 px-10 rounded transition-all hover:bg-pink hover:text-white-600"
-    >
-      save me
-    </button>
+
+    <a v-bind:href="imgLink" @click.stop.prevent="downloadFile(imgLink)"  class=""  download="imgLink" target="_blank">
+      <button
+        class="text-pink-600 mt-10 hover:text-white-600 uppercase font-bold border border-pink-600 py-2 px-10 rounded transition-all hover:bg-pink hover:text-white-600"
+      >
+        save me
+      </button>
+    </a>
   </div>
+
 </template>
 
 <script>
 export default {
+ 
   name: 'DogCard',
   props: ['imgLink'],
   // props: {
   //   msg: String,
   // },
+
+  methods: {
+    downloadFile(link ) {
+      console.log(link);
+        const url = link;
+        const options = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      };
+        
+      fetch(url, options)
+        .then( response => {
+          response.blob().then(blob => {
+              let url = window.URL.createObjectURL(blob);
+              let a = document.createElement('a');
+              a.href = url;
+              a.download = "Happy_Dog.jpg";
+              a.click();
+            });
+          }); 
+      }
+  }
 };
 </script>
 
