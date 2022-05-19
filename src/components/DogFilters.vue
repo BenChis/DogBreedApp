@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <label for="dog-breed">Choose a breed</label>
+  <div class="flex flex-col">
+    <label for="dog-breed">Pick a breed 🐕 <span class="ml-3">⬇️</span></label>
     <select
       class="breed-field"
       name="dog-breed"
@@ -8,8 +8,9 @@
       @change="onBreedChange"
     >
       <option class="dog-breed__option" value="" selected disabled hidden>
-        PLEASE choose an option
+        Click here
       </option>
+      
       <option
         v-for="dogBreed in dogBreeds"
         v-bind:value="dogBreed"
@@ -61,20 +62,5 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
+<style src="../assets/css/tailwind.css">
+

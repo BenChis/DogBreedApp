@@ -1,9 +1,14 @@
 <template>
-  <div>
-    <label for="dog-breed-filter">Choose search results</label>
-    <select class="result-field" name="dog-breed-filter" id="dog-breed-filter">
+  <div class="text-right flex flex-col">
+    <label for="dog-breed-filter">Choose search results ⬇️</label>
+    <select
+      class="result-field"
+      name="dog-breed-filter"
+      id="dog-breed-filter"
+      @change="onAmountChange"
+    >
       <option class="dog-breed__option" value="" selected disabled hidden>
-        PLEASE choose an amount
+        Clicke here
       </option>
       <option value="5">5</option>
       <option value="10">10</option>
@@ -22,16 +27,16 @@ export default {
   data() {
     return {
       dogBreeds: [],
-      selectedBreed: '',
+      selectedAmount: 5,
     };
   },
 
   methods: {
-    onBreedChange(event) {
-      const breedInput = event.target.value;
-      this.selectedBreed = breedInput;
-      console.log(breedInput);
-      this.$emit('change', this.selectedBreed);
+    onAmountChange(event) {
+      const resultsAmount = event.target.value;
+      this.selectedAmount = resultsAmount;
+      // console.log(resultsAmount);
+      this.$emit('change', this.selectedAmount);
     },
   },
 };
