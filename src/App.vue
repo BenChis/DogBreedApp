@@ -1,7 +1,11 @@
 <template>
   <section id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
-    <div class="bg-slate-100 rounded-xl shadow-lg w-8/12 mx-auto mt-10 p-6 mb-8" >
+    <div class="bg-slate-100 rounded-xl max-w-2xl shadow-lg w-8/12 mx-auto mt-10 p-6 mb-8" >
+
+      <!-- <svg class="icon">
+        <use v-bind="Sprite" xlink:href="Sprite#Dog_Breed_App_Logo"></use>
+      </svg> -->
       <h1 class="text-pink-600 uppercase font-bold text-4xl mb-4 text-center">Dog Breed App</h1>
       <p class="justify-center mb-4 flex align-center items-center gap-0.5" >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4" viewBox="0 0 20 20" fill="currentColor">
@@ -17,7 +21,7 @@
     </div>
 
       <div class="flex flex-wrap justify-center" v-if="showDogCard">
-        <DogCard v-for="link in dogSrcArr" :img-link="link" :key="link.id" />
+        <DogCard v-for="link in dogSrcArr.slice(0,currentSearchResults)" :img-link="link" :key="link.id" />
       </div>
 
   </section>
@@ -28,17 +32,18 @@ import DogFilters from './components/DogFilters.vue';
 import ResultsAmount from './components/ResultsAmount.vue';
 import DogCard from './components/DogCard.vue';
 import axios from 'axios';
-// import { mapGetters } from 'vuex';
+// import Sprite from './assets/Svgs/Sprite.svg';
 
 
 export default {
+
   data() {
     return {
       currentBreed: '',
+      //Set default Search Results
       currentSearchResults: 5,
       showDogCard: false,
       dogSrcArr: [],
-
     };
   },
 
@@ -58,7 +63,10 @@ export default {
     },
 
     onAmountChange(num) {
-      this.currentSearchResults = num;
+      if(num === 'all') {
+      this.currentSearchResults = -1;
+      } else this.currentSearchResults = num;
+
       console.log(this.currentSearchResults);
     },
 
@@ -74,9 +82,6 @@ export default {
 
           console.log(this.dogSrcArr);
 
-          this.selectedSearchResults(this.currentBreed)
-
-
           this.toggleShowDogCard(true);
         })
         .catch(err => {
@@ -88,15 +93,6 @@ export default {
       this.showDogCard = state;
     },
 
-    selectedSearchResults: function(state, payload) {
-      console.log(payload, state)
-
-  //     Object.keys(payload).forEach((key) => {
-  //       if (state.hasOwnProperty.call(key)) {
-  //         state[key] = payload[key]
-  //       }
-  // })
-}
   },
 };
 </script>
