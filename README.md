@@ -4,6 +4,12 @@
 
 ![DogApp Desktop](./Preview/Dog_App_Desktop.png)
 ![DogApp Mobile](./Preview/Dog_App_Mobile.png)
+<style type="text/css">
+    img {
+        width: 250px;
+    }
+</style>
+
 
 ## Project setup
 
