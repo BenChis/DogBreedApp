@@ -1,8 +1,5 @@
 import Vue from 'vue';
-
 import App from './App.vue';
-// import store from './store/store';
-
 import './assets/css/tailwind.css';
 import './assets/tailwind.css';
 

@@ -1,12 +1,36 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./Favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./Favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./Favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./Favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./Favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#e6007e" />
+    <meta name="theme-color" content="#ffffff" />
 
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Dog Breed APP</title>
   </head>
   <body class="object-cover bg-amber-100 min-h-[100%]">
     <noscript>
@@ -16,31 +40,7 @@
         continue.</strong
       >
     </noscript>
-    <section id="app">
-      <!-- 
-        1) List of pictures
-        2) Features: filtered by breed
-        3) (10 pictures can be changed to 25, 50, ~)
-        3.1) Smooth animation for the fitlering out pictures
-        4) User should be able to save pictures 
-        5) On endpoint /mydogs the saved pictures should be listed.
-
-        1) list of cards, which holds infos of the dogs
-        2) Menu for user input breed, filter, 
-       -->
-      <!-- <form class="dogselecter">
-        <label for="dogbreed">Choose a breed</label>
-        <select name="dogbreed" id="dogbreed">
-          Norwich Terrier
-        </select>
-        <label for="dogbreed-filter">Choose image amount</label>
-        <select name="dogbreed-filter" id="dogbreed-filter">
-          10
-        </select>
-      </form>
-
-      <div class="card"></div> -->
-    </section>
+    <section id="app"></section>
     <!-- built files will be auto injected -->
   </body>
 </html>

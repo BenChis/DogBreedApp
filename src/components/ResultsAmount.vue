@@ -1,6 +1,8 @@
 <template>
-  <div class="text-right flex flex-col">
-    <label for="dog-breed-filter">Choose search results ⬇️</label>
+  <div class="text-left sm:text-right flex flex-col">
+    <label for="dog-breed-filter" class="font-bold uppercase"
+      >search results ⬇️</label
+    >
     <select
       class="result-field"
       name="dog-breed-filter"
@@ -10,9 +12,11 @@
       <option class="dog-breed__option" value="" selected disabled hidden>
         Clicke here
       </option>
+      <!-- Hard coded values for search results -->
+      <!-- Use config and insert inputs dynamical -->
       <option value="5">5</option>
       <option value="10">10</option>
-      <option value="50">50</option>
+      <option value="25">25</option>
       <option value="all">all</option>
     </select>
   </div>
@@ -21,12 +25,11 @@
 <script>
 export default {
   name: 'ResultsAmount',
-  // props: {
-  //   msg: String,
-  // },
+
   data() {
     return {
       dogBreeds: [],
+      // Default amount for search Results
       selectedAmount: 5,
     };
   },
@@ -35,12 +38,12 @@ export default {
     onAmountChange(event) {
       const resultsAmount = event.target.value;
       this.selectedAmount = resultsAmount;
-      // console.log(resultsAmount);
+
+      // Pass data to parent component(App.vue)
       this.$emit('change', this.selectedAmount);
     },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped></style>
